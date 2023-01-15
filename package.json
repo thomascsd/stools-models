@@ -1,5 +1,6 @@
 {
-  "version": "0.1.0",
+  "name": "@thomascsd/stools-models",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -17,7 +18,9 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "deploy:cpy": "cpy ./package.json ./dist/ & cpy ./README.md ./dist/",
+    "deploy": "deploy:cpy & cd dist & npm publish --access public --dry-run"
   },
   "husky": {
     "hooks": {
@@ -25,12 +28,11 @@
     }
   },
   "prettier": {
-    "printWidth": 80,
+    "printWidth": 100,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "stools-models",
   "author": "thomascsd",
   "module": "dist/stools-models.esm.js",
   "size-limit": [
@@ -44,11 +46,12 @@
     }
   ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^8.1.0",
-    "husky": "^8.0.1",
-    "size-limit": "^8.1.0",
+    "@size-limit/preset-small-lib": "^8.1.1",
+    "cpy-cli": "^4.2.0",
+    "husky": "^8.0.3",
+    "size-limit": "^8.1.1",
     "tsdx": "^0.14.1",
-    "tslib": "^2.4.0",
+    "tslib": "^2.4.1",
     "typescript": "^3.9.10"
   }
 }
